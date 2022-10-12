@@ -1,0 +1,63 @@
+﻿@model IEnumerable<sep10.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.book_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.issuedate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.returndate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bookcount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.issuedate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.returndate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookcount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Changereturndate", new { id = item.book_no }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
